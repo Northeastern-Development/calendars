@@ -1,0 +1,20 @@
+# This is a template .gitignore file for git-managed WordPress projects.## Fact: you don't want WordPress core files, or your server-specific# configuration files etc., in your project's repository. You just don't.
+# As such this is intended to only cover items in the wp-content folder.## Solution: this is intended to only cover items in the wp-content folder
+# and so should appear at the root of the wp-content folder.## See the comments below for more info on how to add exceptions for your# content.
+
+
+
+# ignore everything in the wp-content folder to start
+/*
+
+
+# don't ignore the following specific files/folders!.gitignore
+
+
+# don't ignore the plugins directories
+!plugins/
+!mu-plugins/
+
+
+# Ignore everything in the "themes" directory, except our custom theme
+!themes/nudev/

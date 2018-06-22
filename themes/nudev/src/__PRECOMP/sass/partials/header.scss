@@ -1,0 +1,303 @@
+/**
+ * partials/header
+ * ---
+ */
+
+
+header{
+  width: $wrapper-width;
+  position: fixed;
+  background: rgba($brand_colors-black,1.0);
+  flex: none;
+  z-index: 1000;
+  border-bottom: solid rgba($brand_colors-grayW,1) 1px;
+
+  & > div{
+    width: $content-width-wide;
+    margin: 0 auto 0 auto;
+    height: $header-height;
+    position: relative;
+  }
+}
+
+
+
+
+
+div#nu__alerts{
+  display: block;
+  width: $wrapper-width;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  background: rgba($brand_colors-black, 1.0);
+  min-height: 0;
+  height: auto;
+  color: rgba($brand_colors-black,1.0);
+  @include font-2l-l;
+  line-height: 0;
+  & > div{
+    width: $wrapper-width;
+    margin: 0 auto 0 auto;
+    padding: 10px $gutter 0 90px;
+    background: rgba($brand_colors-white, 1.0);
+    position: relative;
+    overflow: hidden;
+    &:before{
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: rgba($brand_colors-red,1.0);
+      height: 100%;
+      width: ($gutter * 2);
+      content: '';
+    }
+    &:after{
+      position: absolute;
+      left: 0;
+      top: 41%;
+      width: ($gutter * 2);
+      @include font-4-c;
+      color: rgba($brand_colors-white,1.0);
+      content: '\E001';
+    }
+    & > h2{
+      @include font-3b-l;
+      color: rgba($brand_colors-red,1.0);
+      text-transform: uppercase;
+    }
+    & > ul{
+      margin: 0 0 0 15px;
+      & > li{
+        font-size: 1.4rem;
+        line-height: 2rem;
+        font-weight: 700;
+        & > a{
+          border-bottom: none;
+          @include font-2b-l;
+        }
+        &:after{
+          @include font-7-c;
+          color: rgba($brand_colors-red,1.0);
+          content: '\E8E4';
+          vertical-align: -20%;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+div#nu__utility-nav{
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,1.0);
+  height: 30px;
+  overflow: visible;
+  width: $content-width-wide;
+  margin: 0 auto 0 auto;
+  & > a{
+    display: block;
+    float: left;
+    height: inherit;
+    & > img{
+      height: inherit;
+    }
+  }
+  & > div{
+    height: inherit;
+    overflow: hidden;
+  }
+}
+
+
+
+
+
+div#nu__logo{
+  width: 50%;
+  & > a{
+    line-height: $header-height;
+    font-size: 3rem;
+    color: white;
+    border:none;
+    & > img{
+      height: 60px;
+      margin: 0 0 10px 0;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 1280px) {
+
+$gutter: 15px;
+
+div#nu__alerts{
+
+  & > div{
+
+    padding: 10px $gutter 0 90px;
+
+    &:before{
+
+      width: ($gutter * 2);
+
+    }
+    &:after{
+
+      width: ($gutter * 2);
+
+    }
+    & > h2{
+
+    }
+    & > ul{
+
+      & > li{
+
+        & > a{
+
+        }
+        &:after{
+
+        }
+      }
+    }
+  }
+}
+
+}
+
+
+@media only screen and (max-width: 1064px) {
+  div#nu__alerts{
+
+
+
+    & > div{
+
+      &:before{
+
+      }
+      &:after{
+
+
+
+      }
+      & > h2{
+        @include font-9b-l;
+
+      }
+      & > p {
+        @include font-9l-l;
+      }
+      & > ul{
+
+        & > li{
+
+          & > a{
+
+            @include font-10b-l;
+          }
+          &:after{
+            font-size:1.8rem;
+            line-height: 2.8rem;
+            vertical-align: -13%;
+
+          }
+        }
+      }
+    }
+  }
+
+}
+
+
+
+@media screen and (max-width: 899px) {
+  div#nu__logo{
+    & > a{
+      & > img{
+        height: 50px;
+      }
+    }
+  }
+}
+
+
+
+@media screen and (max-width: 680px) {
+
+  $header-height: 100px;
+
+  header {
+    & > div {
+      height: $header-height;
+    }
+  }
+  div#nu__logo{
+    & > a{
+      line-height: 69px;
+      & > img{
+        height: 30px;
+      }
+    }
+  }
+}
+
+// @media screen and (max-width: 600px) {
+//   div#nu__logo{
+//     text-align:center;
+//     width: auto;
+//     & > a{
+//
+//       & > img{
+//
+//       }
+//     }
+//   }
+// }
+
+// sean tierney
+///tttt
+@media only screen and (max-width: 500px) {
+  div#nu__alerts{
+//
+    & > div{
+
+      &:before{
+
+      }
+      &:after{
+
+
+
+      }
+      & > h2{
+        @include font-9b-l;
+
+      }
+      & > p {
+        @include font-9l-l;
+      }
+      & > ul{
+
+        & > li{
+
+          & > a{
+
+            @include font-10b-l;
+          }
+          &:after{
+
+
+          }
+        }
+      }
+    }
+  }
+
+}

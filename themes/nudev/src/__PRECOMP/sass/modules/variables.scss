@@ -1,0 +1,77 @@
+/**
+ * modules/variables
+ * ---
+ */
+
+
+/**
+ * Typography
+ */
+
+$font-family-base: 'Lato',sans-serif,'Material Icons';
+$font-size-base: 2.0rem;
+$line-height-base: 3.2rem;
+$font-weight-base: 400;
+
+
+/**
+ * Colors
+ */
+
+$text-color: rgba(0,0,0,1.0);
+$body-bg: rgba(255,255,255,1.0);
+
+
+$brand_colors-red: rgb(204,0,0);                      // regular red
+$brand_colors-redD: rgb(147,0,0);                     // dark red
+$brand_colors-redL: rgb(218,52,50);                   // light red
+$brand_colors-black: rgb(0, 0, 0);                    // black
+$brand_colors-white: rgb(255, 255, 254);              // white
+$brand_colors-beige: rgb(236,230,213);                // beige
+$brand_colors-grayW: rgb(151, 151, 151);              // warm gray
+
+
+/**
+ * Grid
+ */
+
+$wrapper-width: 100vw;
+$content-width: 80vw;
+$content-width-super-narrow: 88vw;
+$content-width-wide: 97vw;
+$content-width-narrow: 50vw;
+$gutter: 30px;
+
+
+$padding-horizontal-base: 5px;
+$padding-vertical-base: 5px;
+$margin-horizontal-base: 5px;
+$margin-vertical-base: 5px;
+$margin-horizontal-large: 15px;
+$margin-vertical-large: 15px;
+
+
+
+
+/* These are variables for the header */
+$header-height: 80px;
+
+
+/* These are variables for the main navigation */
+$navigation-height: 50px;
+
+
+$footer-height: 250px;
+$footer-height-collapsed: 44px;
+
+
+
+
+
+@media only screen and (max-width: 1100px){
+
+  $content-width: 84vw;
+  $wrapper-margins: 0, (($wrapper-width - $content-width) / 2), 0, (($wrapper-width - $content-width) / 2);
+  $gutter: 2vw;
+
+}

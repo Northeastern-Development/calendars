@@ -1,0 +1,86 @@
+/**
+ * partials/reset
+ * ---
+ * Reset file
+ * NOTE: also `normalize.css` is used
+ */
+
+
+// Global box-sizing
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+// @media screen and (-webkit-min-device-pixel-ratio:0) {
+//   html {
+//     height: 100%;
+//     width: 100%;
+//     overflow: hidden;
+//   }
+//
+//   body {
+//     height: 100%;
+//     padding: 0;
+//     overflow: auto;
+//     margin: 0;
+//     //-webkit-overflow-scrolling: touch;
+//   }
+// }
+
+html {
+  font-size: 62.5%;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  overflow-x: hidden;
+  height: 100%;
+  // overflow:hidden;
+
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  font-weight: $font-weight-base;
+  letter-spacing: 1px;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: $brand_colors-white;
+  color: $brand_colors-white;
+  @include font-2l-l;
+}
+
+img {
+  vertical-align: middle;
+}
+
+a {
+  outline: 0;
+  color: $text-color;
+  text-decoration: none;
+  border-bottom: none;
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:active {
+    text-decoration: none;
+  }
+}
+
+input[type="text"],
+input[type="search"] {
+  font-size: inherit;
+  line-height: inherit;
+}

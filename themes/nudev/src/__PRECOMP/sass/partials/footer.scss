@@ -1,0 +1,973 @@
+/**
+ * partials/footer
+ * ---
+ */
+
+
+// the main footer element on every page
+// flows after content on all pages other than the homepage
+footer{
+  flex: none;
+  background-color: rgba($brand_colors-black,1.0);
+  background-image: url(/wp-content/uploads/footer-watermark.png);
+  background-repeat: no-repeat;
+  background-size: 165px;
+  background-position: right bottom;
+  overflow: hidden;
+  width: 100%;
+  height: 200px;
+  padding: 0 0 0 0;
+  -webkit-transition: height 0.20s linear;
+  -moz-transition: height 0.20s linear;
+  -ms-transition: height 0.20s linear;
+  -o-transition: height 0.20s linear;
+  transition: height 0.20s linear;
+
+  & a{
+    border-bottom: none;
+  }
+
+
+  // this is for pages that will include the pre-footer area
+  &.addprefooter{
+    height: 540px;
+  }
+
+
+
+  &.absolute{  // this forces the footer on the homepage to be positioned absolutely as well as slightly taller to allow for the hide/show control
+    position: absolute;
+    bottom: 0;
+    z-index: 0;
+    height: 250px;
+    background-size: 210px;
+    z-index:500;
+    & > div.nu__footer{
+      & > div.nu__footer-hideshow{
+        border-bottom: solid rgba($brand_colors-grayW,1.0) 1px;
+        display: block;
+        &:before{
+          content: '\E313';
+        }
+        &:hover{
+          cursor: pointer;
+          color: rgba($brand_colors-white,1.0);
+        }
+      }
+    }
+  }
+
+
+   &.collapse{  // this is the closed state of the footer on the homepage only!
+     height: $footer-height-collapsed;
+     overflow: hidden;
+     background-size: 0px;
+     & > div.nu__footer{
+       padding: 0 0 0 0;
+       height: inherit;
+       & > div.nu__footer-hideshow{
+         border: none;
+        display: block;
+        &:before{
+          content: '\E316';
+        }
+        &:hover{
+          cursor: pointer;
+          color: rgba($brand_colors-white,1.0);
+        }
+       }
+     }
+   }
+
+
+  // this defines the space for the pre-footer on pages that include it
+  & > div.nu__prefooter{
+    height: 300px;
+    background: rgba($brand_colors-red,1.0);
+    width: $wrapper-width;
+    & > div{
+      width: $content-width;
+      height: inherit;
+      margin: 0 auto 0 auto;
+    }
+  }
+
+   & > div.nu__footer{
+    padding: 0 0 ($gutter / 1.5) 0;
+    width: $wrapper-width;
+    height: inherit;
+    margin: 0 auto 0 auto;
+     position: relative;
+     & > div.nu__footer-hideshow{
+       width: $content-width-wide;
+       display: none;
+       height: $footer-height-collapsed;
+       line-height: $footer-height-collapsed;
+       @include font-3l-l;
+       line-height:4.4rem;
+       color: rgba($brand_colors-white,0.8);
+       margin: 0 auto 0 auto;
+       &:hover{
+         cursor: pointer;
+         color: rgba($brand_colors-white,1.0);
+       }
+     }
+     & > div{
+      width: $content-width-wide;
+      margin: ($gutter / 1.6) auto 0 auto;
+       & > a{
+         color: rgba($brand_colors-white,1.0);
+         float: left;
+         margin-right: 20px;
+         & > img,
+         & > svg{
+          fill: rgba($brand_colors-white,1.0);
+          height: 1.5vw;
+         }
+       }
+
+          & > div{
+            width: 100%;
+            height: auto;
+            clear: both;
+            margin: 0 0 0 0;
+            overflow: hidden;
+            &:nth-child(1){
+              padding: 0 0 0 0;
+            }
+            & > p{
+              float: left;
+              @include font-2b-l;
+              color: rgba($brand_colors-white,0.8);
+              text-transform: uppercase;
+              width: 250px;
+              margin: 0 0 10px 0;
+            }
+
+            & > ul{
+              list-style: none;
+              list-style-type: none;
+              & > li{
+                float: left;
+                margin: 0 20px 0 0;
+                &:last-child{
+                  margin: 0 0 0 0;
+                }
+                & > a{
+                  @include font-2l-l;
+                  color: rgba($brand_colors-white,0.8);
+                  &:hover{
+                    color: rgba($brand_colors-white,1.0);
+                  }
+                  & > svg{
+                    height: 30px;
+
+                    &  .cls-1 {
+                      fill: rgba($brand_colors-white,.6);
+
+                    }
+                    &  .cls-2 {
+                      fill: rgba($brand_colors-white,.6);
+
+                    }
+                    &  .cls-3 {
+                      fill: rgba($brand_colors-white,.6);
+
+                    }
+                    &:hover {
+                      &  .cls-1 {
+                        fill: rgba($brand_colors-white,1.0);
+
+                      }
+                      &  .cls-2 {
+                        fill: rgba($brand_colors-white,1.0);
+
+                      }
+                      &  .cls-3 {
+                        fill: rgba($brand_colors-white,1.0);
+
+                      }
+                    }
+
+
+                  }
+                }
+              }
+            }
+         }
+
+       & > p{
+         clear: both;
+         height: auto;
+         margin: ($gutter / 2) 0 0 0;
+         padding: 0;
+         @include font-1r-l;
+         color: rgba($brand_colors-grayW,0.8);
+         & > a{
+           color: rgba($brand_colors-grayW,0.8);
+           &:hover{
+             color: rgba($brand_colors-white,1.0);
+           }
+         }
+       }
+    }
+   }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1064px) {
+  footer{
+    background-image: none;
+    // & a{
+    //
+    // }
+
+
+    // this is for pages that will include the pre-footer area
+    // &.addprefooter{
+    //
+    // }
+
+
+
+    // &.absolute{  // this forces the footer on the homepage to be positioned absolutely as well as slightly taller to allow for the hide/show control
+    //
+    //   & > div.nu__footer{
+    //     & > div.nu__footer-hideshow{
+    //
+    //       &:before{
+    //
+    //       }
+    //       &:hover{
+    //
+    //       }
+    //     }
+    //   }
+    // }
+
+
+     // &.collapse{  // this is the closed state of the footer on the homepage only!
+     //
+     //   & > div.nu__footer{
+     //
+     //     & > div.nu__footer-hideshow{
+     //
+     //      &:before{
+     //
+     //      }
+     //      &:hover{
+     //
+     //      }
+     //     }
+     //   }
+     // }
+
+    // this defines the space for the pre-footer on pages that include it
+    // & > div.nu__prefooter{
+    //
+    //   & > div{
+    //
+    //   }
+    // }
+     & > div.nu__footer{
+
+       // & > div.nu__footer-hideshow{
+       //
+       //   &:hover{
+       //
+       //   }
+       // }
+       & > div{
+
+         // & > a{
+         //
+         //   & > img,
+         //   & > svg{
+         //
+         //   }
+         // }
+            & > div{
+
+              // &:nth-child(1){
+              //
+              // }
+              & > p{
+                @include font-1b-l;
+              }
+
+              & > ul{
+
+                & > li{
+
+                  // &:last-child{
+                  //
+                  // }
+                  & > a{
+                    @include font-1l-l;
+
+                    // &:hover{
+                    //
+                    // }
+                    // & > svg{
+                    //
+                    // }
+                  }
+                }
+              }
+           }
+         & > p{
+           @include font-0r-l;
+           // & > a{
+           //
+           //   &:hover{
+           //
+           //   }
+           // }
+         }
+      }
+     }
+  }
+}
+
+
+@media only screen and (max-width: 899px) {
+  footer{
+
+    // & a{
+    //
+    // }
+
+
+    // this is for pages that will include the pre-footer area
+    // &.addprefooter{
+    //
+    // }
+
+
+
+    &.absolute{  // this forces the footer on the homepage to be positioned absolutely as well as slightly taller to allow for the hide/show control
+      position:relative;
+      bottom: inherit;
+      z-index:0;
+      & > div.nu__footer{
+        & > div.nu__footer-hideshow{
+          display:none;
+          // &:before{
+          //
+          // }
+          // &:hover{
+          //
+          // }
+        }
+      }
+    }
+
+
+     &.collapse{  // this is the closed state of the footer on the homepage only!
+       height:inherit;
+       height:auto;
+       // & > div.nu__footer{
+       //
+       //   & > div.nu__footer-hideshow{
+       //
+       //    &:before{
+       //
+       //    }
+       //    &:hover{
+       //
+       //    }
+       //   }
+       // }
+     }
+
+    // this defines the space for the pre-footer on pages that include it
+    // & > div.nu__prefooter{
+    //
+    //   & > div{
+    //
+    //   }
+    // }
+     & > div.nu__footer{
+
+       // & > div.nu__footer-hideshow{
+       //
+       //   &:hover{
+       //
+       //   }
+       // }
+       & > div{
+         margin: 18.75px auto;
+         // & > a{
+         //
+         //   & > img,
+         //   & > svg{
+         //
+         //   }
+         // }
+           //  & > div{
+           //
+           //    &:nth-child(1){
+           //
+           //    }
+           //    & > p{
+           //
+           //    }
+           //
+           //    & > ul{
+           //
+           //      & > li{
+           //
+           //        &:last-child{
+           //
+           //        }
+           //        & > a{
+           //
+           //
+           //          &:hover{
+           //
+           //          }
+           //          & > svg{
+           //
+           //          }
+           //        }
+           //      }
+           //    }
+           // }
+         // & > p{
+         //
+         //   & > a{
+         //
+         //     &:hover{
+         //
+         //     }
+         //   }
+         // }
+      }
+     }
+  }
+}
+
+
+@media only screen and (max-width: 780px) {
+  footer{
+    height: auto;
+    // & a{
+    //
+    // }
+
+
+    // this is for pages that will include the pre-footer area
+    // &.addprefooter{
+    //
+    // }
+
+
+
+    // &.absolute{  // this forces the footer on the homepage to be positioned absolutely as well as slightly taller to allow for the hide/show control
+    //
+    //   & > div.nu__footer{
+    //     & > div.nu__footer-hideshow{
+    //
+    //       &:before{
+    //
+    //       }
+    //       &:hover{
+    //
+    //       }
+    //     }
+    //   }
+    // }
+
+
+     // &.collapse{  // this is the closed state of the footer on the homepage only!
+     //
+     //   & > div.nu__footer{
+     //
+     //     & > div.nu__footer-hideshow{
+     //
+     //      &:before{
+     //
+     //      }
+     //      &:hover{
+     //
+     //      }
+     //     }
+     //   }
+     // }
+
+
+    // this defines the space for the pre-footer on pages that include it
+    // & > div.nu__prefooter{
+    //
+    //   & > div{
+    //
+    //   }
+    // }
+
+     // & > div.nu__footer{
+     //
+     //   & > div.nu__footer-hideshow{
+     //
+     //     &:hover{
+     //
+     //     }
+     //   }
+     //   & > div{
+     //
+     //     & > a{
+     //
+     //       & > img,
+     //       & > svg{
+     //
+     //       }
+     //     }
+     //
+     //        & > div{
+     //
+     //          &:nth-child(1){
+     //
+     //          }
+     //          & > p{
+     //
+     //          }
+     //
+     //          & > ul{
+     //
+     //            & > li{
+     //
+     //              &:last-child{
+     //
+     //              }
+     //              & > a{
+     //
+     //
+     //                &:hover{
+     //
+     //                }
+     //                & > svg{
+     //
+     //                }
+     //              }
+     //            }
+     //          }
+     //       }
+     //
+     //     & > p{
+     //
+     //       & > a{
+     //
+     //         &:hover{
+     //
+     //         }
+     //       }
+     //     }
+     //  }
+     // }
+
+  }
+
+
+
+
+}
+
+@media only screen and (max-width: 700px) {
+  footer{
+
+    // & a{
+    //
+    // }
+
+
+    // this is for pages that will include the pre-footer area
+    // &.addprefooter{
+    //
+    // }
+
+
+
+    // &.absolute{  // this forces the footer on the homepage to be positioned absolutely as well as slightly taller to allow for the hide/show control
+    //
+    //   & > div.nu__footer{
+    //     & > div.nu__footer-hideshow{
+    //
+    //       &:before{
+    //
+    //       }
+    //       &:hover{
+    //
+    //       }
+    //     }
+    //   }
+    // }
+
+
+     // &.collapse{  // this is the closed state of the footer on the homepage only!
+     //
+     //   & > div.nu__footer{
+     //
+     //     & > div.nu__footer-hideshow{
+     //
+     //      &:before{
+     //
+     //      }
+     //      &:hover{
+     //
+     //      }
+     //     }
+     //   }
+     // }
+
+
+    // this defines the space for the pre-footer on pages that include it
+    // & > div.nu__prefooter{
+    //
+    //   & > div{
+    //
+    //   }
+    // }
+
+     & > div.nu__footer{
+
+       // & > div.nu__footer-hideshow{
+       //
+       //   &:hover{
+       //
+       //   }
+       // }
+       & > div{
+
+         // & > a{
+         //
+         //   & > img,
+         //   & > svg{
+         //
+         //   }
+         // }
+
+            & > div{
+
+              // &:nth-child(1){
+              //
+              // }
+              & > p{
+                //float:none;
+                width: auto;
+                margin-right: 20px;
+              }
+
+              & > ul{
+
+                & > li{
+
+                  // &:last-child{
+                  //
+                  // }
+                  & > a{
+
+
+                    // &:hover{
+                    //
+                    // }
+                    & > svg{
+                      height:25px;
+                    }
+                  }
+                }
+              }
+           }
+
+         // & > p{
+         //
+         //   & > a{
+         //
+         //     &:hover{
+         //
+         //     }
+         //   }
+         // }
+      }
+     }
+
+  }
+
+
+
+
+}
+
+
+@media only screen and (max-width: 575px) {
+  footer{
+    height: auto;
+    // & a{
+    //
+    // }
+
+
+    // this is for pages that will include the pre-footer area
+    // &.addprefooter{
+    //
+    // }
+
+
+
+    // &.absolute{  // this forces the footer on the homepage to be positioned absolutely as well as slightly taller to allow for the hide/show control
+    //
+    //   & > div.nu__footer{
+    //     & > div.nu__footer-hideshow{
+    //
+    //       &:before{
+    //
+    //       }
+    //       &:hover{
+    //
+    //       }
+    //     }
+    //   }
+    // }
+
+
+     // &.collapse{  // this is the closed state of the footer on the homepage only!
+     //
+     //   & > div.nu__footer{
+     //
+     //     & > div.nu__footer-hideshow{
+     //
+     //      &:before{
+     //
+     //      }
+     //      &:hover{
+     //
+     //      }
+     //     }
+     //   }
+     // }
+
+
+    // this defines the space for the pre-footer on pages that include it
+    // & > div.nu__prefooter{
+    //
+    //   & > div{
+    //
+    //   }
+    // }
+
+     & > div.nu__footer{
+
+       // & > div.nu__footer-hideshow{
+       //
+       //   &:hover{
+       //
+       //   }
+       // }
+       & > div{
+
+         // & > a{
+         //
+         //   & > img,
+         //   & > svg{
+         //
+         //   }
+         // }
+
+            & > div{
+              margin-bottom: 10px;
+              &:nth-child(1){
+
+              }
+              & > p{
+                float:none;
+                text-align:center;
+                margin-right: 0;
+              }
+
+              & > ul{
+                display: flex;
+                flex-wrap: wrap;
+                width: 90%;
+                flex-direction: row;
+                margin: 0 auto 0 auto;
+                & > li{
+
+                  float: none;
+                  //flex: 1;
+                  //flex-basis: 20%;
+                  flex: 1 0 30%;
+                  text-align: center;
+                  margin:0;
+                  &:last-child{
+
+                  }
+                  // & > a{
+                  //   //text-align: center;
+                  //
+                  //   &:hover{
+                  //
+                  //   }
+                  //   & > svg{
+                  //
+                  //   }
+                  // }
+                }
+
+              }
+              &:nth-of-type(2){
+                & > ul {
+                  max-width:60%;
+                  // & > li {
+                  //
+                  // }
+                }
+              }
+           }
+
+         & > p{
+           text-align: center;
+           // & > a{
+           //
+           //   &:hover{
+           //
+           //   }
+           // }
+         }
+      }
+     }
+
+  }
+
+
+
+
+}
+
+// footer{
+//
+//   & a{
+//
+//   }
+//
+//
+//   // this is for pages that will include the pre-footer area
+//   &.addprefooter{
+//
+//   }
+//
+//
+//
+//   &.absolute{  // this forces the footer on the homepage to be positioned absolutely as well as slightly taller to allow for the hide/show control
+//
+//     & > div.nu__footer{
+//       & > div.nu__footer-hideshow{
+//
+//         &:before{
+//
+//         }
+//         &:hover{
+//
+//         }
+//       }
+//     }
+//   }
+//
+//
+//    &.collapse{  // this is the closed state of the footer on the homepage only!
+//
+//      & > div.nu__footer{
+//
+//        & > div.nu__footer-hideshow{
+//
+//         &:before{
+//
+//         }
+//         &:hover{
+//
+//         }
+//        }
+//      }
+//    }
+//
+//
+//   // this defines the space for the pre-footer on pages that include it
+//   & > div.nu__prefooter{
+//
+//     & > div{
+//
+//     }
+//   }
+//
+//    & > div.nu__footer{
+//
+//      & > div.nu__footer-hideshow{
+//
+//        &:hover{
+//
+//        }
+//      }
+//      & > div{
+//
+//        & > a{
+//
+//          & > img,
+//          & > svg{
+//
+//          }
+//        }
+//
+//           & > div{
+//
+//             &:nth-child(1){
+//
+//             }
+//             & > p{
+//
+//             }
+//
+//             & > ul{
+//
+//               & > li{
+//
+//                 &:last-child{
+//
+//                 }
+//                 & > a{
+//
+//
+//                   &:hover{
+//
+//                   }
+//                   & > svg{
+//
+//                   }
+//                 }
+//               }
+//             }
+//          }
+//
+//        & > p{
+//
+//          & > a{
+//
+//            &:hover{
+//
+//            }
+//          }
+//        }
+//     }
+//    }
+//
+// }

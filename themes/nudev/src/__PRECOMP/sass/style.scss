@@ -1,0 +1,179 @@
+/**
+ * styles.scss
+ * ---
+ * Main `sass` file. Import here `sass` files
+ */
+
+// Modules
+@import "modules/variables";
+@import "modules/mixins";
+@import "modules/fonts";
+
+
+
+// Partials
+@import "partials/reset";
+@import "partials/wordpress";
+@import "partials/utils";
+@import "partials/wrapper";
+@import "partials/header";
+@import "partials/nav";
+@import "partials/sidebar";
+@import "partials/footer";
+@import "partials/print";
+
+
+
+h1{
+  @include font-6l-l;
+}
+
+
+h2{
+  @include font-8l-c;
+}
+
+h3{
+  @include font-3l-c;
+}
+
+a{
+  border-bottom: solid rgba($brand_colors-red,1.0) 1px;
+  &:hover{
+    color: $brand_colors-red;
+
+  }
+}
+
+h4{
+  @include font-5b-l;
+  margin: 0 0 ($gutter / 1.7) 0;
+}
+
+h5{
+  @include font-2b-l;
+}
+
+h6{
+  @include font-2b-l;
+}
+
+p{
+  @include font-2l-l;
+  margin: 0 0 $gutter 0;
+  &:last-of-type{
+    margin: 0 0 0 0;
+  }
+}
+
+
+/* Styles for the main content */
+main{
+  margin: 0 auto 0 auto;
+  $h: 100%;
+  min-height: calc(#{$h} - #{$header-height});
+  min-height: -moz-calc(#{$h} - #{$header-height});
+  min-height: -webkit-calc(#{$h} - #{$header-height});
+  width: $content-width;
+  & > section{
+    position: relative;
+    margin: 0 0 0 0;
+    width: inherit;
+    clear: both;
+    overflow: hidden;
+  }
+}
+
+
+
+@media only screen and (max-width: 1280px) {
+
+  h1{
+    @include font-5r-l;
+  }
+
+
+  h2{
+    @include font-6l-c;
+  }
+
+  h3{
+    @include font-2l-c;
+  }
+
+
+
+  h4{
+
+    @include font-3b-c;
+  }
+
+
+
+
+}
+
+
+@media only screen and (max-width: 959px) {
+
+  h1{
+    @include font-3l-l;
+  }
+
+
+  h2{
+    @include font-3l-c;
+  }
+
+  h3{
+    @include font-2l-c;
+  }
+
+
+}
+
+
+@media only screen and (max-width: 600px) {
+
+  h1{
+
+    @include font-3l-c;
+  }
+
+
+  h2{
+
+  }
+
+  h3{
+
+  }
+
+  a{
+
+    &:hover{
+
+    }
+  }
+
+  h4{
+
+    margin: 0 0 ($gutter / 1.7) 0;
+  }
+
+  h5{
+    @include font-2b-l;
+  }
+
+  h6{
+    @include font-2b-l;
+  }
+
+  p{
+    @include font-2l-l;
+    margin: 0 0 $gutter 0;
+    &:last-of-type{
+      margin: 0 0 0 0;
+    }
+  }
+}

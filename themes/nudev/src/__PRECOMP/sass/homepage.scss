@@ -1,0 +1,2908 @@
+/*
+ * homepage
+ */
+
+
+ // Modules
+ @import "modules/variables";
+ @import "modules/mixins";
+ @import "modules/fonts";
+
+
+
+html{
+  overflow:hidden;
+}
+
+$columns: 3;
+
+body.home{
+  height: 100%;
+  min-height: 100%;
+}
+
+main#nu__homepage{
+
+  width: $wrapper-width;
+  margin: 0 0 0 0;
+  background: rgba($brand_colors-white,1.0);
+
+  $h: 100%;
+
+  min-height: calc(#{$h} - #{$header-height} - #{$footer-height-collapsed});
+  height: calc(#{$h} - #{$header-height} - #{$footer-height-collapsed});
+  min-height: -moz-calc(#{$h} - #{$header-height} - #{$footer-height-collapsed});
+  height: -moz-calc(#{$h} - #{$header-height} - #{$footer-height-collapsed});
+  min-height: -webkit-calc(#{$h} - #{$header-height} - #{$footer-height-collapsed});
+  height: -webkit-calc(#{$h} - #{$header-height} - #{$footer-height-collapsed});
+
+
+  div#nu__seo-content{
+    position: absolute;
+    z-index: -1000;
+  }
+
+
+  div#nu__stories{
+    height: 99.9%;  // this is a fix for the bottom borders on the lowest row of articles to appear
+  	width: 300%;
+    overflow-x: scroll;
+  	overflow:auto;
+
+    div.takeover{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($brand_colors-black,1.0);
+      background-position: center center !important;
+      background-repeat: no-repeat !important;
+      background-size: cover !important;
+      z-index: 600;
+      & > div.nu__close-takeover {
+        top: $gutter;
+        right: $gutter;
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background:rgba($brand_colors-white,.6);
+        z-index: 500;
+        color: rgba($brand_colors-black,1.0);;
+        font-size: 4rem;
+        text-align: center;
+        line-height: 58px;
+        cursor:pointer;
+        &:after {
+          content: '\E14C';
+          font-size:4rem;
+          line-height:5.5rem;
+          text-align:center;
+          color:rgba($brand_colors-black,1.0);
+        }
+        &:hover {
+          background:rgba($brand_colors-white,1.0);
+        }
+      }
+      & > a {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        text-decoration:none;
+        z-index: 200;
+        border-bottom: none;
+      }
+      &  p {
+        @include font-5l-c;
+        color: rgba($brand_colors-white,1.0);
+        max-width:90%;
+        width:100%;
+        position: absolute;  //bottom: ($gutter * 3);
+        bottom:220px;
+        left: 50%;
+        transform: translateX(-50%) translateY(0);
+        z-index:1;
+        &:after{
+          @include font-7-c;
+          color: rgba($brand_colors-red,1.0);
+          content: '\E8E4';
+          vertical-align: -20%;
+        }
+      }
+      &  h2 {
+        @include font-3l-c;
+        padding-bottom: 0;
+        position: absolute;
+        bottom:170px;
+        z-index:100;
+        left: 50%;
+        transform: translateX(-50%) translateY(0);
+        color: rgba($brand_colors-white,1.0);
+        width:100%;
+        & > span {
+          border-bottom: 2px solid rgba($brand_colors-red,1);
+          padding-bottom:5px;
+        }
+      }
+      & div.gradient {
+        height:50%;
+        width: 100%;
+        position:absolute;
+        bottom:0;
+        background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        z-index: 0;
+      }
+    }
+
+    // these are the slide next and previous arrows
+    & > #prev,
+    & > #next {
+    		position: absolute;
+        display:none;
+    		top: 50%;
+        margin-top: -50px;
+    		width: 50px;
+        height: 100px;
+    		background: rgba($brand_colors-red,0.4);
+    		z-index:500;
+        color: rgba($brand_colors-black,1.0);
+        font-size: 4rem;
+        line-height: 110px;
+    		&:hover {
+          background: rgba($brand_colors-red,0.8);
+          cursor:pointer;
+    		}
+    }
+
+    & > #prev {
+        left: 0;
+        text-align: left;
+        border-bottom-right-radius: 100px;
+        border-top-right-radius: 100px;
+    }
+
+    & > #next {
+      right: 0;
+      text-align: right;
+      border-bottom-left-radius: 100px;
+      border-top-left-radius: 100px;
+    }
+
+
+    & > section {
+  		height:100%;
+  		float: left;
+      display: block;
+  		width:33.33%;
+  		& > article {
+  			position:relative;
+  			min-height: 200px;
+        display: block;
+        background: rgba($brand_colors-black,1.0);
+  			background-position: center center !important;
+  			background-repeat: no-repeat !important;
+  			background-size: cover !important;
+        & div.nu__article-alphatile{
+          // display: none;
+          width: auto;
+          height: 100%;
+          position: absolute;
+          z-index: 0;
+          left: 0;
+          top: 0;
+          & > svg{
+            height: 100%;
+            width: auto;
+            fill: rgba($brand_colors-white,0.6);
+          }
+        }
+        & div.gradient {
+          height:50%;
+          width: 100%;
+          position:absolute;
+          bottom:0;
+          background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%); /* FF3.6-15 */
+          background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%); /* Chrome10-25,Safari5.1-6 */
+          background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+          z-index: 1;
+        }
+        div.nu__overlay-logo{
+          width:50px;
+          height:50px;
+          position:absolute;
+          top:$gutter;
+          right:$gutter;
+        }
+
+
+        & > a {
+  				width: 100%;
+  				height: 100%;
+  				position: absolute;
+  				top: 0;
+  				left: 0;
+  				text-decoration:none;
+          z-index: 200;
+          border-bottom: none;
+          color: rgba($brand_colors-black,0.0);
+          background:rgba($brand_colors-black,0.0);
+         &:hover ~ div.nu__panel-content  {
+            background:rgba($brand_colors-black,0.6);
+            & p {
+              opacity:1;
+            }
+         }
+         &:hover ~ div.nu__article-alphatile{
+           & > svg{
+             fill: rgba($brand_colors-white,0.1);
+           }
+         }
+
+  	    }
+  			& h2 {
+          color: rgba($brand_colors-white,1.0);
+  				text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  				max-width:91%;
+  			}
+
+        & div.nu__panel-content {
+          width:100%;
+          height:100%;
+          background: rgba($brand_colors-black,0.0);
+           -webkit-transition: background-color 0.20s ease-out;
+          -moz-transition: background-color 0.20s ease-out;
+          -o-transition: background-color 0.20s ease-out;
+          transition: background-color 0.20s ease-out;
+          & p {
+            color: rgba($brand_colors-white,1.0);
+  					max-width:90%;
+  					width:100%;
+  					position: absolute;
+            font-size:1.2vw;
+            bottom: 4.4vw;
+            line-height: 1.8vw;
+  			    left: 50%;
+            text-align:center;
+  			    transform: translateX(-50%) translateY(0);
+            z-index:2;
+            opacity:0;
+            &:after{
+              color: rgba($brand_colors-red,1.0);
+              content: '\E8E4';
+              vertical-align: -20%;
+            }
+  				}
+          & h2 {
+            padding-bottom: 0;
+    				position: absolute;
+            font-size:1vw;
+            line-height: 2.2vw;
+            bottom: 1.2vw;
+    				z-index:100;
+    				left: 50%;
+    				transform: translateX(-50%) translateY(0);
+            width:100%;
+            & > span {
+              border-bottom: 2px solid rgba($brand_colors-red,1);
+              padding-bottom:5px;
+            }
+    			}
+        }
+
+
+  			&.nu__block-rotator{
+          background: rgba($brand_colors-black,1.0);
+
+          & > div.bgimage{
+            width: 100%;
+            height: 100%;
+            background-position: center center !important;
+  					background-repeat: no-repeat !important;
+  					background-size: cover !important;
+          }
+          & > div.nu__slide-controls{
+            position: absolute;
+            left: $gutter;
+            top: $gutter;
+            width: auto;
+            overflow: visible;
+            z-index:201;
+            & > div{
+              clear: both;
+              width: 80px;
+              overflow: hidden;
+              margin: 0 0 10px 0;
+              & > .slider_next,
+              & > .slider_prev {
+                display: none;
+                float: left;
+                margin: 0 10px 0 0;
+                @include font-5r-l;
+                line-height: 34px;
+      				  width: 28px;
+                height: 28px;
+                text-align: center;
+      				  border-radius: 50%;
+      				  background: rgba($brand_colors-white,0.6);
+                color: rgba($brand_colors-black,1.0);
+                box-shadow: 0 2px 4px rgba($brand_colors-black,.5);
+      					z-index:100;
+      					&:hover {
+      						background: rgba($brand_colors-white,1.0);
+                  color: rgba($brand_colors-black,1.0);
+                  cursor: pointer;
+      					}
+      				}
+      				& > .slider_next {
+      					left: ($gutter * 2) + 5px;
+      				}
+      				& > .slider_prev {
+      					left:$gutter;
+      				}
+            }
+
+          }
+
+          & div.gradient {
+            height:100%;
+            width: 100%;
+            position:absolute;
+            bottom:0;
+            background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,.7) 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,.7) 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,.7) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            z-index: 0;
+          }
+  			}
+
+  		}
+
+
+
+  	}
+
+
+    & > section.panel-1{
+      & > article {
+        &:nth-child(1){
+          float:left;
+          width:70%;
+          height:65%;
+          order:1;
+          border-bottom: solid rgba($brand_colors-grayW,1) 1px;
+          // & div.nu__article-alphatile{
+          //   display: block;
+          // }
+        }
+        &:nth-child(2){
+          float:right;
+          width:30%;
+          height:35%;
+          order:2;
+          border-right: solid rgba($brand_colors-grayW,1) 1px;
+          border-bottom: solid rgba($brand_colors-grayW,1) 1px;
+          border-left: solid rgba($brand_colors-grayW,1) 1px;
+        }
+        &:nth-child(3){
+          float:right;
+          width:30%;
+          height:65%;
+          order:3;
+          border-right: solid rgba($brand_colors-grayW,1) 1px;
+          border-bottom: solid rgba($brand_colors-grayW,1) 1px;
+          border-left: solid rgba($brand_colors-grayW,1) 1px;
+        }
+        &:nth-child(4){
+          float:left;
+          width:45%;
+          height:35%;
+          order:4;
+          overflow:hidden;
+          border-bottom: solid rgba($brand_colors-grayW,1) 1px;
+        }
+        &:nth-child(5){
+          float:right;
+          width:25%;
+          height:35%;
+          order:5;
+          border-bottom: solid rgba($brand_colors-grayW,1) 1px;
+          border-left: solid rgba($brand_colors-grayW,1) 1px;
+        }
+      }
+    }
+    & > section.panel-2{
+      & > article {
+        &:nth-child(1){
+          float:left;
+          width:70%;
+          height:65%;
+          order:1;
+          border-bottom: solid rgba($brand_colors-grayW,1) 1px;
+          // & div.nu__article-alphatile{
+          //   display: block;
+          // }
+        }
+        &:nth-child(2){
+          float:right;
+          width:30%;
+          height:100%;
+          order:2;
+          border-right: solid rgba($brand_colors-grayW,1) 1px;
+          border-bottom: solid rgba($brand_colors-grayW,1) 1px;
+          border-left: solid rgba($brand_colors-grayW,1) 1px;
+        }
+        &:nth-child(3){
+          float:left;
+          width:45%;
+          height:35%;
+          order:3;
+          border-bottom: solid rgba($brand_colors-grayW,1) 1px;
+        }
+        &:nth-child(4){
+          float:left;
+          width:25%;
+          height:35%;
+          order:4;
+          border-bottom: solid rgba($brand_colors-grayW,1) 1px;
+          border-left: solid rgba($brand_colors-grayW,1) 1px;
+        }
+      }
+    }
+    & > section.panel-3{
+      & > article {
+        &:nth-child(1){
+          float:left;
+          width:30%;
+          height:100%;
+          order:1;
+          border-bottom: solid rgba($brand_colors-grayW,1) 1px;
+        }
+        &:nth-child(2){
+          float:right;
+          width:70%;
+          height:65%;
+          order:2;
+          border-bottom: solid rgba($brand_colors-grayW,1) 1px;
+          border-left: solid rgba($brand_colors-grayW,1) 1px;
+          // & div.nu__article-alphatile{
+          //   display: block;
+          // }
+        }
+        &:nth-child(3){
+          float:left;
+          width:25%;
+          height:35%;
+          order:3;
+          border-bottom: solid rgba($brand_colors-grayW,1) 1px;
+          border-left: solid rgba($brand_colors-grayW,1) 1px;
+        }
+        &:nth-child(4){
+          float:right;
+          width:45%;
+          height:35%;
+          order:4;
+          border-bottom: solid rgba($brand_colors-grayW,1) 1px;
+          border-left: solid rgba($brand_colors-grayW,1) 1px;
+        }
+      }
+    }
+
+
+
+
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 1800px) {
+
+  main#nu__homepage{
+
+
+
+
+
+
+    div#nu__seo-content{
+
+    }
+
+
+    div#nu__stories{
+
+
+      div.takeover{
+
+        & > div.nu__close-takeover {
+
+          &:after {
+
+          }
+          &:hover {
+
+          }
+        }
+        & > a {
+
+        }
+        &  p {
+
+          &:after{
+
+          }
+        }
+        &  h2 {
+
+          & > span {
+
+          }
+        }
+        & div.gradient {
+
+        }
+      }
+
+      // these are the slide next and previous arrows
+      & > #prev,
+      & > #next {
+
+      		&:hover {
+
+      		}
+      }
+
+      & > #prev {
+
+      }
+
+      & > #next {
+
+      }
+
+
+      & > section {
+
+    		& > article {
+
+          & div.gradient {
+
+          }
+          div.nu__overlay-logo{
+
+          }
+
+          &:hover {
+
+            & > a{
+
+            }
+          }
+
+
+          & > a {
+
+           &:hover ~ div.nu__panel-content  {
+
+             & p {
+
+             }
+
+           }
+
+    	    }
+    			& h2 {
+
+    			}
+
+          // &:not(.nu__block-rotator){
+
+            & > div.nu__panel-content {
+
+              & p {
+                @include font-5l-c;
+                bottom:75px;
+
+                &:after{
+                  @include font-7-c;
+
+                }
+      				}
+              & h2 {
+                @include font-3l-c;
+                bottom:25px;
+
+                & > span {
+
+                }
+
+
+        			}
+
+            }
+          // }
+
+
+    			&.nu__block-rotator{
+
+
+            &:hover {
+              & h2::after {
+
+              }
+            }
+
+            & > div.bgimage{
+
+            }
+
+    				& > a {
+
+    				}
+            & > h2 {
+
+              @include font-3l-l;
+
+              &:after{
+                @include font-7-c;
+
+              }
+
+            }
+            & > div.nu__slide-controls{
+
+              & > div{
+
+                & > .slider_next,
+                & > .slider_prev {
+
+        					&:hover {
+
+        					}
+        				}
+        				& > .slider_next {
+
+        				}
+        				& > .slider_prev {
+
+        				}
+              }
+
+            }
+
+            & div.gradient {
+
+            }
+    			}
+
+    		}
+
+
+
+    	}
+
+
+      & > section.panel-1{
+        & > article {
+          &:nth-child(1){
+
+          }
+          &:nth-child(2){
+
+          }
+          &:nth-child(3){
+
+          }
+          &:nth-child(4){
+
+          }
+          &:nth-child(5){
+
+
+          }
+        }
+      }
+      & > section.panel-3{
+        & > article {
+          &:nth-child(1){
+
+          }
+          &:nth-child(2){
+
+          }
+          &:nth-child(3){
+
+          }
+          &:nth-child(4){
+
+          }
+        }
+      }
+
+      & > section.panel-2{
+        & > article {
+          &:nth-child(1){
+
+          }
+          &:nth-child(2){
+
+          }
+          &:nth-child(3){
+
+          }
+          &:nth-child(4){
+
+          }
+        }
+      }
+
+
+    }
+
+  }
+}
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1300px) {
+
+  main#nu__homepage{
+
+
+
+
+
+
+    div#nu__seo-content{
+
+    }
+
+
+    div#nu__stories{
+
+
+      div.takeover{
+
+        & > div.nu__close-takeover {
+
+          &:after {
+
+          }
+          &:hover {
+
+          }
+        }
+        & > a {
+
+        }
+        &  p {
+
+          &:after{
+
+          }
+        }
+        &  h2 {
+
+          & > span {
+
+          }
+        }
+        & div.gradient {
+
+        }
+      }
+
+      // these are the slide next and previous arrows
+      & > #prev,
+      & > #next {
+
+      		&:hover {
+
+      		}
+      }
+
+      & > #prev {
+
+      }
+
+      & > #next {
+
+      }
+
+
+      & > section {
+
+    		& > article {
+
+          & div.gradient {
+
+          }
+          div.nu__overlay-logo{
+
+          }
+
+          &:hover {
+
+            & > a{
+
+            }
+          }
+
+
+          & > a {
+
+           &:hover ~ div.nu__panel-content  {
+
+             & p {
+
+             }
+
+           }
+
+    	    }
+    			& h2 {
+
+    			}
+
+          //&:not(.nu__block-rotator){
+
+            & > div.nu__panel-content {
+
+              & p {
+                @include font-2l-c;
+                bottom:75px;
+
+                &:after{
+                  @include font-3l-c;
+
+                }
+      				}
+              & h2 {
+                @include font-10l-c;
+                bottom:25px;
+
+                & > span {
+
+                }
+
+
+        			}
+
+            }
+          //}
+
+
+    			&.nu__block-rotator{
+
+
+            &:hover {
+              & h2::after {
+
+              }
+            }
+
+            & > div.bgimage{
+
+            }
+
+    				& > a {
+
+    				}
+            & > h2 {
+
+              @include font-10l-l;
+
+              &:after{
+                @include font-3l-c;
+
+              }
+
+            }
+            & > div.nu__slide-controls{
+
+              & > div{
+
+                & > .slider_next,
+                & > .slider_prev {
+
+        					&:hover {
+
+        					}
+        				}
+        				& > .slider_next {
+
+        				}
+        				& > .slider_prev {
+
+        				}
+              }
+
+            }
+
+            & div.gradient {
+
+            }
+    			}
+
+    		}
+
+
+
+    	}
+
+
+      & > section.panel-1{
+        & > article {
+          &:nth-child(1){
+
+          }
+          &:nth-child(2){
+
+          }
+          &:nth-child(3){
+
+          }
+          &:nth-child(4){
+
+          }
+          &:nth-child(5){
+
+
+          }
+        }
+      }
+      & > section.panel-3{
+        & > article {
+          &:nth-child(1){
+
+          }
+          &:nth-child(2){
+
+          }
+          &:nth-child(3){
+
+          }
+          &:nth-child(4){
+
+          }
+        }
+      }
+
+      & > section.panel-2{
+        & > article {
+          &:nth-child(1){
+
+          }
+          &:nth-child(2){
+
+          }
+          &:nth-child(3){
+
+          }
+          &:nth-child(4){
+
+          }
+        }
+      }
+
+
+    }
+
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1120px) {
+
+
+  main#nu__homepage{
+
+
+
+
+    div#nu__seo-content{
+
+    }
+
+
+    div#nu__stories{
+
+
+      div.takeover{
+
+        & > div.nu__close-takeover {
+
+          &:after {
+
+          }
+          &:hover {
+
+          }
+        }
+        & > a {
+
+        }
+        &  p {
+          @include font-1r-c;
+          &:after{
+            @include font-4-c;
+            vertical-align: -19%;
+          }
+        }
+
+        &  h2 {
+
+          & > span {
+
+          }
+        }
+        & div.gradient {
+
+        }
+      }
+
+
+      & > #prev,
+      & > #next {
+
+      		&:hover {
+
+      		}
+      }
+
+      & > #prev {
+
+      }
+
+      & > #next {
+
+      }
+
+
+      & > section {
+
+    		& > article {
+
+          & div.gradient {
+
+          }
+          div.nu__overlay-logo{
+
+          }
+
+          &:hover {
+
+            & > a{
+
+            }
+          }
+
+
+          & > a {
+
+           &:hover ~ div.nu__panel-content  {
+
+             & p {
+
+             }
+
+           }
+
+    	    }
+    			& h2 {
+
+    			}
+
+          //&:not(.nu__block-rotator){
+
+            & > div.nu__panel-content {
+
+              &  p {
+                @include font-1r-c;
+                &:after{
+                  @include font-4-c;
+                  vertical-align: -19%;
+                }
+              }
+              & h2 {
+                @include font-1r-c;
+                &:after{
+                 @include font-4-c;
+                 vertical-align: -19%;
+                }
+                & > span {
+
+                }
+
+
+        			}
+
+            }
+          //}
+
+
+    			&.nu__block-rotator{
+
+
+            &:hover {
+              & h2::after {
+
+              }
+            }
+
+            & > div.bgimage{
+
+            }
+
+    				& > a {
+
+    				}
+            & > h2 {
+              @include font-1r-l
+              color: $brand_colors-white;
+              &:after{
+               @include font-4-c;
+               vertical-align: -19%;
+              }
+
+            }
+            & > div.nu__slide-controls{
+
+              & > div{
+
+                & > .slider_next,
+                & > .slider_prev {
+
+        					&:hover {
+
+        					}
+        				}
+        				& > .slider_next {
+
+        				}
+        				& > .slider_prev {
+
+        				}
+              }
+
+            }
+
+            & div.gradient {
+
+            }
+    			}
+
+    		}
+
+
+
+    	}
+
+
+      & > section.panel-1{
+        & > article {
+          &:nth-child(1){
+
+          }
+          &:nth-child(2){
+
+          }
+          &:nth-child(3){
+
+          }
+          &:nth-child(4){
+
+          }
+          &:nth-child(5){
+
+
+          }
+        }
+      }
+      & > section.panel-3{
+        & > article {
+          &:nth-child(1){
+
+          }
+          &:nth-child(2){
+
+          }
+          &:nth-child(3){
+
+          }
+          &:nth-child(4){
+
+          }
+        }
+      }
+
+      & > section.panel-2{
+        & > article {
+          &:nth-child(1){
+
+          }
+          &:nth-child(2){
+
+          }
+          &:nth-child(3){
+
+          }
+          &:nth-child(4){
+
+          }
+        }
+      }
+
+
+    }
+  }
+
+}
+
+
+@media screen and (max-width: 1000px) {
+
+
+  main#nu__homepage{
+
+
+
+
+    div#nu__seo-content{
+
+    }
+
+
+    div#nu__stories{
+
+
+      div.takeover{
+
+        & > div.nu__close-takeover {
+
+          &:after {
+
+          }
+          &:hover {
+
+          }
+        }
+        & > a {
+
+        }
+        &  p {
+          @include font-0r-c;
+          &:after{
+            @include font-4-c;
+            vertical-align: -19%;
+          }
+        }
+
+        &  h2 {
+
+          & > span {
+
+          }
+        }
+        & div.gradient {
+
+        }
+      }
+
+
+      & > #prev,
+      & > #next {
+
+      		&:hover {
+
+      		}
+      }
+
+      & > #prev {
+
+      }
+
+      & > #next {
+
+      }
+
+
+      & > section {
+
+    		& > article {
+
+          & div.gradient {
+
+          }
+          div.nu__overlay-logo{
+
+          }
+
+          &:hover {
+
+            & > a{
+
+            }
+          }
+
+
+          & > a {
+
+           &:hover ~ div.nu__panel-content  {
+
+             & p {
+
+             }
+
+           }
+
+    	    }
+    			& h2 {
+
+    			}
+
+          //&:not(.nu__block-rotator){
+
+            & > div.nu__panel-content {
+
+              &  p {
+                @include font-0r-c;
+                &:after{
+                  @include font-4-c;
+                  vertical-align: -19%;
+                }
+              }
+              & h2 {
+                @include font-1r-c;
+                &:after{
+                 @include font-4-c;
+                 vertical-align: -19%;
+                }
+                & > span {
+
+                }
+
+
+        			}
+
+            }
+          //}
+
+
+    			&.nu__block-rotator{
+
+
+            &:hover {
+              & h2::after {
+
+              }
+            }
+
+            & > div.bgimage{
+
+            }
+
+    				& > a {
+
+    				}
+            & > h2 {
+              //@include font-1r-l;
+              &:after{
+               @include font-4-c;
+               vertical-align: -19%;
+              }
+
+            }
+            & > div.nu__slide-controls{
+
+              & > div{
+
+                & > .slider_next,
+                & > .slider_prev {
+
+        					&:hover {
+
+        					}
+        				}
+        				& > .slider_next {
+
+        				}
+        				& > .slider_prev {
+
+        				}
+              }
+
+            }
+
+            & div.gradient {
+
+            }
+    			}
+
+    		}
+
+
+
+    	}
+
+
+      & > section.panel-1{
+        & > article {
+          &:nth-child(1){
+
+          }
+          &:nth-child(2){
+
+          }
+          &:nth-child(3){
+
+          }
+          &:nth-child(4){
+
+          }
+          &:nth-child(5){
+
+
+          }
+        }
+      }
+      & > section.panel-3{
+        & > article {
+          &:nth-child(1){
+
+          }
+          &:nth-child(2){
+
+          }
+          &:nth-child(3){
+
+          }
+          &:nth-child(4){
+
+          }
+        }
+      }
+
+      & > section.panel-2{
+        & > article {
+          &:nth-child(1){
+
+          }
+          &:nth-child(2){
+
+          }
+          &:nth-child(3){
+
+          }
+          &:nth-child(4){
+
+          }
+        }
+      }
+
+
+    }
+  }
+
+}
+
+
+@media screen and (max-width: 899px) {
+
+  body.home{
+    height: 100%;
+    min-height: 100%;
+    & > .wrapper {
+      min-height:auto;
+      height: auto;
+    }
+  }
+
+  body {
+    overflow-x:hidden;
+    //overflow-y:auto;
+  }
+
+
+  main#nu__homepage{
+    width:100%;
+    margin: 0 0 0 0;
+    background: rgba($brand_colors-black,1.0);
+    $h: 100%;
+
+    min-height: calc(#{$h} - #{$header-height});
+    height: calc(#{$h} - #{$header-height});
+    min-height: -moz-calc(#{$h} - #{$header-height});
+    height: -moz-calc(#{$h} - #{$header-height});
+    min-height: -webkit-calc(#{$h} - #{$header-height});
+    height: -webkit-calc(#{$h} - #{$header-height});
+
+
+
+    div#nu__seo-content{
+
+    }
+
+
+    div#nu__stories{
+      height: 100%;
+     	width: 100%;
+      overflow-x: scroll;
+     	overflow:auto;
+
+      div.takeover{
+
+        & > div.nu__close-takeover {
+
+          &:after {
+
+          }
+          &:hover {
+
+          }
+        }
+        & > a {
+
+        }
+        &  p {
+          @include font-0r-c;
+          &:after{
+            @include font-4-c;
+            vertical-align: -19%;
+          }
+        }
+
+        &  h2 {
+
+          & > span {
+
+          }
+        }
+        & div.gradient {
+
+        }
+      }
+
+
+      & > #prev,
+      & > #next {
+        display:none;
+      		&:hover {
+
+      		}
+      }
+
+      & > #prev {
+
+      }
+
+      & > #next {
+
+      }
+
+
+      & > section {
+        height:auto;
+    		float: none;
+        display: block;
+    		width:100%;
+  			display: flex;
+  			flex-wrap: wrap;
+    		& > article {
+           min-height: 350px;
+
+          & div.gradient {
+
+          }
+          div.nu__overlay-logo{
+
+          }
+
+          &:hover {
+
+            & > a{
+
+            }
+          }
+
+
+          & > a {
+
+           &:hover ~ div.nu__panel-content  {
+
+             & p {
+
+             }
+
+           }
+
+
+    	    }
+    			& h2 {
+
+    			}
+
+          //&:not(.nu__block-rotator){
+
+            & > div.nu__panel-content {
+
+              &  p {
+                @include font-4-c;
+                bottom:75px;
+                &:after{
+                  @include font-4-c;
+                  vertical-align: -19%;
+                }
+              }
+              & h2 {
+                //@include font-1r-c;
+                bottom:25px;
+                &:after{
+                 //@include font-4-c;
+                 //vertical-align: -19%;
+                }
+                & > span {
+
+                }
+
+
+        			}
+
+            }
+          //}
+
+
+    			&.nu__block-rotator{
+
+
+            &:hover {
+              & h2::after {
+
+              }
+            }
+
+            & > div.bgimage{
+
+            }
+
+    				& > a {
+
+    				}
+            & > h2 {
+              //@include font-1r-c;
+              &:after{
+               //@include font-4-c;
+               //vertical-align: -19%;
+              }
+
+            }
+            & > div.nu__slide-controls{
+
+              & > div{
+
+                & > .slider_next,
+                & > .slider_prev {
+
+        					&:hover {
+
+        					}
+        				}
+        				& > .slider_next {
+
+        				}
+        				& > .slider_prev {
+
+        				}
+              }
+
+            }
+
+            & div.gradient {
+
+            }
+    			}
+
+    		}
+
+
+
+    	}
+
+
+      & > section.panel-1{
+        & > article {
+          display: block;
+          &:nth-child(1){
+            float:none;
+            width:100%;
+  					height:50vw;
+            order:1;
+          }
+          &:nth-child(2){
+            float:none;
+            width:100%;
+           height:50vw;
+            order:2;
+            border-left: none;
+          }
+          &:nth-child(3){
+            float:none;
+            width:100%;
+  					height:50vw;
+            order:3;
+            border-left: none;
+          }
+          &:nth-child(4){
+            float:none;
+            width:100%;
+  					height:50vw;
+            order:4;
+            overflow:hidden;
+          }
+          &:nth-child(5){
+            float:none;
+            width:100%;
+           height:50vw;
+            order:5;
+            border-left: none;
+          }
+        }
+      }
+      & > section.panel-2{
+        & > article {
+          display: block;
+          &:nth-child(1){
+            float:none;
+            width:100%;
+           height:50vw;
+            order:1;
+          }
+          &:nth-child(2){
+            float:none;
+            width:100%;
+           height:50vw;
+            order:2;
+            border-left: none;
+          }
+          &:nth-child(3){
+            float:none;
+            width:100%;
+           height:50vw;
+            order:3;
+          }
+          &:nth-child(4){
+            float:none;
+            width:100%;
+           height:50vw;
+            order:4;
+            border-left: none;
+          }
+        }
+      }
+
+      & > section.panel-3{
+        & > article {
+         display: block;
+         &:nth-child(1){
+           float:none;
+           width:100%;
+           height:50vw;
+           order:1;
+         }
+         &:nth-child(2){
+           float:none;
+           width:100%;
+          height:50vw;
+           order:2;
+           border-left: none;
+         }
+         &:nth-child(3){
+           float:none;
+           width:100%;
+           height:50vw;
+           order:3;
+           border-left: none;
+         }
+         &:nth-child(4){
+           float:none;
+           width:100%;
+          height:50vw;
+           order:4;
+           border-left: none;
+         }
+       }
+      }
+
+
+    }
+  }
+
+
+}
+
+
+
+@media screen and (max-width: 800px) {
+
+
+  main#nu__homepage{
+    width:100%;
+    margin: 0 0 0 0;
+    background: rgba($brand_colors-black,1.0);
+    $h: 100%;
+
+    min-height: calc(#{$h} - #{$header-height});
+    height: calc(#{$h} - #{$header-height});
+    min-height: -moz-calc(#{$h} - #{$header-height});
+    height: -moz-calc(#{$h} - #{$header-height});
+    min-height: -webkit-calc(#{$h} - #{$header-height});
+    height: -webkit-calc(#{$h} - #{$header-height});
+
+
+
+    div#nu__seo-content{
+
+    }
+
+
+    div#nu__stories{
+
+
+      div.takeover{
+
+        & > div.nu__close-takeover {
+
+          &:after {
+
+          }
+          &:hover {
+
+          }
+        }
+        & > a {
+
+        }
+        &  p {
+          @include font-0r-c;
+          &:after{
+            @include font-4-c;
+            vertical-align: -19%;
+          }
+        }
+
+        &  h2 {
+
+          & > span {
+
+          }
+        }
+        & div.gradient {
+          height:50%;
+
+        }
+      }
+
+
+      & > #prev,
+      & > #next {
+
+      		&:hover {
+
+      		}
+      }
+
+      & > #prev {
+
+      }
+
+      & > #next {
+
+      }
+
+
+      & > section {
+
+    		& > article {
+
+          & div.gradient {
+
+          }
+          div.nu__overlay-logo{
+
+          }
+
+          &:hover {
+
+            & > a{
+
+            }
+          }
+
+
+          & > a {
+
+           &:hover ~ div.nu__panel-content  {
+
+             & p {
+
+             }
+             //opacity:0;
+             background: none;
+
+           }
+           &:hover ~ div.nu__article-alphatile{
+             & > svg{
+               fill: rgba($brand_colors-white,0.6);
+             }
+           }
+
+    	    }
+    			& h2 {
+
+    			}
+
+          //&:not(.nu__block-rotator){
+
+            & > div.nu__panel-content {
+
+              &  p {
+                display: none;
+                // @include font-4-c;
+                // bottom:75px;
+                &:after{
+                  @include font-4-c;
+                  vertical-align: -19%;
+                }
+              }
+              & h2 {
+                @include font-3l-c;
+                bottom:25px;
+                &:after{
+                }
+                & > span {
+
+                }
+
+
+        			}
+
+            }
+          //}
+
+
+    			&.nu__block-rotator{
+
+
+            &:hover {
+              & h2::after {
+
+              }
+            }
+
+            & > div.bgimage{
+
+            }
+
+    				& > a {
+
+    				}
+            & > h2 {
+              @include font-3l-l;
+              color: $brand_colors-white;
+
+              &:after{
+
+                //@include font-7-c;
+                color: rgba($brand_colors-red,1.0);
+                //content: '\E8E4';
+                //vertical-align: -20%;
+                text-shadow:inherit;
+              }
+
+            }
+            & > div.nu__slide-controls{
+
+              & > div{
+
+                & > .slider_next,
+                & > .slider_prev {
+
+        					&:hover {
+
+        					}
+        				}
+        				& > .slider_next {
+
+        				}
+        				& > .slider_prev {
+
+        				}
+              }
+
+            }
+
+            & div.gradient {
+              height:50%;
+
+            }
+    			}
+
+    		}
+
+
+
+    	}
+
+
+      & > section.panel-1{
+        & > article {
+
+          &:nth-child(1){
+
+          }
+          &:nth-child(2){
+
+          }
+          &:nth-child(3){
+
+          }
+          &:nth-child(4){
+
+          }
+          &:nth-child(5){
+
+
+          }
+        }
+      }
+      & > section.panel-2{
+        & > article {
+
+          &:nth-child(1){
+
+          }
+          &:nth-child(2){
+
+          }
+          &:nth-child(3){
+
+          }
+          &:nth-child(4){
+
+          }
+        }
+      }
+
+      & > section.panel-3{
+        & > article {
+         display: block;
+         &:nth-child(1){
+
+         }
+         &:nth-child(2){
+
+         }
+         &:nth-child(3){
+
+         }
+         &:nth-child(4){
+
+         }
+       }
+      }
+
+
+    }
+  }
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 680px) {
+
+  $h: 100%;
+  $header-height: 100px;
+
+  main#nu__homepage {
+    min-height: calc(#{$h} - #{$header-height} );
+    height: calc(#{$h} - #{$header-height} );
+    min-height: -moz-calc(#{$h} - #{$header-height} );
+    height: -moz-calc(#{$h} - #{$header-height} );
+    min-height: -webkit-calc(#{$h} - #{$header-height} );
+    height: -webkit-calc(#{$h} - #{$header-height} );
+  }
+
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 600px) {
+
+
+  main#nu__homepage{
+
+
+
+
+    div#nu__seo-content{
+
+    }
+
+
+    div#nu__stories{
+
+
+      div.takeover{
+
+        & > div.nu__close-takeover {
+
+          &:after {
+
+          }
+          &:hover {
+
+          }
+        }
+        & > a {
+
+        }
+        &  p {
+
+          &:after{
+
+          }
+        }
+
+        &  h2 {
+
+          & > span {
+
+          }
+        }
+        & div.gradient {
+
+
+        }
+      }
+
+
+      & > #prev,
+      & > #next {
+
+      		&:hover {
+
+      		}
+      }
+
+      & > #prev {
+
+      }
+
+      & > #next {
+
+      }
+
+
+      & > section {
+
+    		& > article {
+
+          & div.gradient {
+
+          }
+          div.nu__overlay-logo{
+
+          }
+
+          &:hover {
+
+            & > a{
+
+            }
+          }
+
+
+          & > a {
+
+           &:hover ~ div.nu__panel-content  {
+
+             & p {
+
+             }
+
+
+           }
+
+    	    }
+    			& h2 {
+
+    			}
+
+          //&:not(.nu__block-rotator){
+
+            & > div.nu__panel-content {
+
+              &  p {
+
+                &:after{
+
+                }
+              }
+              & h2 {
+
+                &:after{
+                }
+                & > span {
+
+                }
+
+
+        			}
+
+            }
+          //}
+
+
+    			&.nu__block-rotator{
+
+
+            &:hover {
+              & h2::after {
+
+              }
+            }
+
+            & > div.bgimage{
+
+            }
+
+    				& > a {
+
+    				}
+            & > h2 {
+              width:85%;
+              &:after{
+                vertical-align: -15%;
+              }
+
+            }
+            & > div.nu__slide-controls{
+              left:50%;
+              right:0;
+              transform: translateX(-50%);
+              -webkit-transform: translateX(-50%);
+
+              & > div{
+                width:104px;
+                margin: 0 auto;
+                & > .slider_next,
+                & > .slider_prev {
+                  width:42px;
+                  height:42px;
+                  line-height:48px;
+        					&:hover {
+
+        					}
+        				}
+        				& > .slider_next {
+
+        				}
+        				& > .slider_prev {
+
+        				}
+              }
+
+            }
+
+            & div.gradient {
+
+
+            }
+    			}
+
+    		}
+
+
+
+    	}
+
+
+      & > section.panel-1{
+        & > article {
+
+          &:nth-child(1){
+
+          }
+          &:nth-child(2){
+
+          }
+          &:nth-child(3){
+
+          }
+          &:nth-child(4){
+
+          }
+          &:nth-child(5){
+
+
+          }
+        }
+      }
+      & > section.panel-2{
+        & > article {
+
+          &:nth-child(1){
+
+          }
+          &:nth-child(2){
+
+          }
+          &:nth-child(3){
+
+          }
+          &:nth-child(4){
+
+          }
+        }
+      }
+
+      & > section.panel-3{
+        & > article {
+         display: block;
+         &:nth-child(1){
+
+         }
+         &:nth-child(2){
+
+         }
+         &:nth-child(3){
+
+         }
+         &:nth-child(4){
+
+         }
+       }
+      }
+
+
+    }
+  }
+
+
+
+
+
+
+
+}
+
+//
+// @media screen and (max-width: 600px) {
+//
+//   body {
+//
+//   }
+//
+//   main#nu__homepage{
+//
+//
+//
+//
+//     div#nu__seo-content{
+//
+//     }
+//
+//
+//     div#nu__stories{
+//
+//
+//       // these are the slide next and previous arrows
+//       & > #prev,
+//       & > #next {
+//
+//           &:hover {
+//
+//           }
+//       }
+//
+//       & > #prev {
+//
+//       }
+//
+//       & > #next {
+//
+//       }
+//
+//
+//       & > section {
+//
+//         & > article {
+//
+//
+//           div.nu__overlay-logo{
+//
+//           }
+//
+//           &:hover {
+//
+//             & > a{
+//
+//             }
+//           }
+//
+//
+//           & > a {
+//
+//             & p {
+//               @include font-1r-c;
+//               &:after{
+//                 @include font-4-c;
+//                 vertical-align: -19%;
+//               }
+//             }
+//
+//           }
+//           & h2 {
+//
+//           }
+//
+//           &:not(.nu__block-rotator){
+//             & h2 {
+//
+//               &:after {
+//
+//               }
+//             }
+//           }
+//
+//
+//           &.nu__block-rotator{
+//
+//
+//             & > a {
+//
+//               &:hover {
+//
+//               }
+//             }
+//             & > div.nu__slide-controls{
+//
+//               & > div{
+//
+//
+//                 & > .slider_next,
+//                 & > .slider_prev {
+//
+//                   &:hover {
+//
+//                   }
+//                 }
+//                 & > .slider_next {
+//
+//                 }
+//                 & > .slider_prev {
+//
+//                 }
+//               }
+//               & > h2 {
+//
+//                 &:after{
+//
+//                 }
+//               }
+//             }
+//           }
+//
+//         }
+//
+//
+//
+//       }
+//
+//
+//       & > section.panel-1{
+//         & > article {
+//
+//           &:nth-child(1){
+//
+//           }
+//           &:nth-child(2){
+//
+//           }
+//           &:nth-child(3){
+//
+//           }
+//           &:nth-child(4){
+//
+//           }
+//           &:nth-child(5){
+//
+//
+//           }
+//         }
+//       }
+//       & > section.panel-2{
+//         & > article {
+//
+//           &:nth-child(1){
+//
+//           }
+//           &:nth-child(2){
+//
+//           }
+//           &:nth-child(3){
+//
+//           }
+//           &:nth-child(4){
+//
+//           }
+//         }
+//       }
+//
+//       & > section.panel-3{
+//         & > article {
+//
+//           &:nth-child(1){
+//
+//           }
+//           &:nth-child(2){
+//
+//           }
+//           &:nth-child(3){
+//
+//           }
+//           &:nth-child(4){
+//
+//           }
+//         }
+//       }
+//     }
+//   }
+//
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// main#nu__homepage{
+//
+//
+//
+//
+//   div#nu__seo-content{
+//
+//   }
+//
+//
+//   div#nu__stories{
+//
+//
+//     div.takeover{
+//
+//       & > div.nu__close-takeover {
+//
+//         &:after {
+//
+//         }
+//         &:hover {
+//
+//         }
+//       }
+//       & > a {
+//
+//       }
+//       &  p {
+//
+//         &:after{
+//
+//         }
+//       }
+//       &  h2 {
+//
+//         & > span {
+//
+//         }
+//       }
+//       & div.gradient {
+//
+//       }
+//     }
+//
+//
+//     & > #prev,
+//     & > #next {
+//
+//     		&:hover {
+//
+//     		}
+//     }
+//
+//     & > #prev {
+//
+//     }
+//
+//     & > #next {
+//
+//     }
+//
+//
+//     & > section {
+//
+//   		& > article {
+//
+//         & div.gradient {
+//
+//         }
+//         div.nu__overlay-logo{
+//
+//         }
+//
+//         &:hover {
+//
+//           & > a{
+//
+//           }
+//         }
+//
+//
+//         & > a {
+//
+//          &:hover ~ div.nu__panel-content  {
+//
+//            & p {
+//
+//            }
+//
+//          }
+//
+//   	    }
+//   			& h2 {
+//
+//   			}
+//
+//         &:not(.nu__block-rotator){
+//
+//           & > div.nu__panel-content {
+//
+//             & p {
+//
+//               &:after{
+//
+//               }
+//     				}
+//             & h2 {
+//
+//               & > span {
+//
+//               }
+//
+//
+//       			}
+//
+//           }
+//         }
+//
+//
+//   			&.nu__block-rotator{
+//
+//
+//           &:hover {
+//             & h2::after {
+//
+//             }
+//           }
+//
+//           & > div.bgimage{
+//
+//           }
+//
+//   				& > a {
+//
+//   				}
+//           & > h2 {
+//
+//             &:after{
+//
+//             }
+//
+//           }
+//           & > div.nu__slide-controls{
+//
+//             & > div{
+//
+//               & > .slider_next,
+//               & > .slider_prev {
+//
+//       					&:hover {
+//
+//       					}
+//       				}
+//       				& > .slider_next {
+//
+//       				}
+//       				& > .slider_prev {
+//
+//       				}
+//             }
+//
+//           }
+//
+//           & div.gradient {
+//
+//           }
+//   			}
+//
+//   		}
+//
+//
+//
+//   	}
+//
+//
+//     & > section.panel-1{
+//       & > article {
+//         &:nth-child(1){
+//
+//         }
+//         &:nth-child(2){
+//
+//         }
+//         &:nth-child(3){
+//
+//         }
+//         &:nth-child(4){
+//
+//         }
+//         &:nth-child(5){
+//
+//
+//         }
+//       }
+//     }
+//     & > section.panel-3{
+//       & > article {
+//         &:nth-child(1){
+//
+//         }
+//         &:nth-child(2){
+//
+//         }
+//         &:nth-child(3){
+//
+//         }
+//         &:nth-child(4){
+//
+//         }
+//       }
+//     }
+//
+//     & > section.panel-2{
+//       & > article {
+//         &:nth-child(1){
+//
+//         }
+//         &:nth-child(2){
+//
+//         }
+//         &:nth-child(3){
+//
+//         }
+//         &:nth-child(4){
+//
+//         }
+//       }
+//     }
+//
+//
+//   }
+// }
