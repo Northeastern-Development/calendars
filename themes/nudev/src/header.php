@@ -50,7 +50,7 @@
 
 		<?php wp_head(); ?>
 
-		<script>
+		<!-- <script>
 			// this is for the google custom search engine
 			(function() {
 			var cx = '003005722642506293004:ijksvxamcbm';
@@ -61,7 +61,7 @@
 			var s = document.getElementsByTagName('script')[0];
 			s.parentNode.insertBefore(gcse, s);
 			})();
-		</script>
+		</script> -->
 
 	</head>
 	<body <?php body_class(); ?>>
@@ -70,13 +70,13 @@
 
 		<div class="wrapper">
 
-			<?php if(function_exists("wp_globalheader")){wp_globalheader();} ?><header role="banner"><?php if(function_exists("wp_header")){wp_header();} ?>
+			<?php if(function_exists("wp_globalheader")){wp_globalheader();} ?><header role="banner">
 
 				<div>
-                    
+
                     <div>
 
-					   <nav role="navigation" class="nu__mainmenu">
+					   <!-- <nav role="navigation" class="nu__mainmenu"> -->
 						  <?php nudev_nav(); ?>
 						  <!--<div id="nu__mainmenu-search">
 							     <input id="nu__search-toggle" type="checkbox" title="Click to search all of Northeastern University" />
@@ -84,10 +84,10 @@
 							     <?php get_template_part('loops/loop-searchnav'); ?>
 						  </div>-->
 
-					   </nav>
+					   <!-- </nav> -->
 
 					   <div id="nu__logo">
-						  <a href="<?=home_url()?>" title="Northeastern University - A University Like No Other"><img src="<?=home_url()?>/wp-content/uploads/logo.png" alt="northeastern university logo" /></a>
+						  <a href="<?=home_url()?>" title="Northeastern University - A University Like No Other"><img src="<?=home_url()?>/wp-content/uploads/logo.png" alt="Calendar of Events" /></a>
 					   </div>
                     </div>
 

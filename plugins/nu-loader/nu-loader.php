@@ -9,6 +9,12 @@
 * License: GPL2
 */
 
+//$resourcesUrl = array('http://newnu.nudev.net');
+$resourcesUrl = array('https://www.northeastern.edu');
+
+//$liveUrl  = "https://www.northeastern.edu";
+//$devUrl   = "http://dynamicnav.nudev.net";
+//$devDataUrl  = "http://newnu.nudev.net";
 
 
 
@@ -110,8 +116,6 @@ function register_mysettings() { // whitelist options
 //
 // echo get_site_url();
 
-$baseUrls = array(get_site_url());
-
 
 
 
@@ -198,27 +202,32 @@ updated wp theme files
 *********************************************************************** */
 
 function nu_headerfooterstyles(){
-  echo '<link  rel="stylesheet" id="global-header-footer-css"  href="http://dynamicnav.nudev.net/global/common/css/headerfooter.css"/> ';
+  global $resourcesUrl;
+
+  echo '<link  rel="stylesheet" id="global-header-footer-css"  href="'.$resourcesUrl[0].'/nuglobalutils/common/css/headerfooter.css" /> ';
   echo "\n";
 }
 
 function nu_materialicons(){
-  echo '<link  rel="stylesheet" id="global-font-css"  href="http://dynamicnav.nudev.net/global/common/css/material-icons.css"/> ';
+  global $resourcesUrl;
+  echo '<link  rel="stylesheet" id="global-font-css"  href="'.$resourcesUrl[0].'/nuglobalutils/common/css/material-icons.css"/> ';
   echo "\n";
 }
 
 function nu_headerstyles() {
-
-  echo '<link  rel="stylesheet" id="global-header-style-css"  href="http://dynamicnav.nudev.net/global/common/css/utilitynav.css"  /> ';
+  global $resourcesUrl;
+  echo '<link  rel="stylesheet" id="global-header-style-css"  href="'.$resourcesUrl[0].'/nuglobalutils/common/css/utilitynav.css"  /> ';
   echo "\n";
 }
 
 function nu_footerstyles() {
-  echo '<link  rel="stylesheet" id="global-footer-style-css"  href="http://dynamicnav.nudev.net/global/common/css/footer.css"  /> ';
+  global $resourcesUrl;
+  echo '<link  rel="stylesheet" id="global-footer-style-css"  href="'.$resourcesUrl[0].'/nuglobalutils/common/css/footer.css"  /> ';
 }
 
 function nu_scripts() {
- echo '<script src="http://dynamicnav.nudev.net/global/common/js/navigation-min.js" /> ';
+  global $resourcesUrl;
+ echo '<script src="'.$resourcesUrl[0].'/nuglobalutils/common/js/navigation-min.js" /> ';
  echo "</script>";
  echo "\n";
 }
@@ -352,10 +361,11 @@ function nu_global_footer(){
 
   // need a back up of local content in case the resource cannot be reached for some reason
 
-  global $baseUrls;
+  //global $baseUrls;
+  global $resourcesUrl;
 
-
-  $url = 'http://newnu.nudev.net/resources/includes/?r=footer';
+  $url = ''.$resourcesUrl[0].'/resources/includes/?return=footer';
+  // $url = $resourcesUrl[0].'/resources/components/?return=footer';
 
   $curl = curl_init($url);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
@@ -386,10 +396,11 @@ HTML content
 *********************************************************************** */
 function nu_supernav(){
 
-  global $baseUrls;
+  //global $baseUrls;
+  global $resourcesUrl;
 
   // this is an example of the global style utility supernav that can be pulled into any requesting site
-  $url = 'http://newnu.nudev.net/resources/components/?return=main-menu';
+  $url = ''.$resourcesUrl[0].'/resources/components/?return=main-menu';
   $curl = curl_init($url);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
   echo '<div id="nu__globalheader">'.curl_exec($curl).'</div>';
